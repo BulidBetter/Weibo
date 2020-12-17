@@ -6,16 +6,22 @@
     <meta charset="utf-8" />
     <title>@yield('title') - Web App</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/nprogress.css') }}" />
 </head>
 <body>
 
 @include('layouts._header')
-<div class="container">
-    @yield('content')
-    @include('layouts._footer')
+<div id="app" class="container">
+    <div class="col-lg-10 offset-lg-1">
+        @yield('content')
+        @include('layouts._footer')
+    </div>
 </div>
 
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery.pjax.js') }}"></script>
+<script src="{{ asset('js/nprogress.js') }}"></script>
+<script src="{{ asset('js/public.js') }}"></script>
 
 </body>
 </html>
