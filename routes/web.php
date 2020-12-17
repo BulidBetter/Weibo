@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('api/users/{user:id}', function(User $user) {
-    return $user;
-});
+Route::get('/', 'PagesController@index');
+Route::get('help', 'PagesController@help');
+Route::get('about', 'PagesController@about');
