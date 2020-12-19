@@ -15,11 +15,11 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-        $message = [
+        $messages = [
             'name.required' => '昵称不能为空。',
             'name.unique' => '该昵称已存在。',
             'email.required' => '邮箱不能为空。',
-            'email.email' => '该邮箱不是有效的邮箱地址。',
+            'email.email' => '邮箱不是有效的邮箱地址。',
             'email.unique' => '该邮箱已被注册。',
             'password.required' => '密码不能为空。',
             'password.confirmed' => '两次密码输入不一致。'
@@ -29,7 +29,7 @@ class UsersController extends Controller
             'name' => 'required|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed'
-        ], $message);
+        ], $messages);
 
         $user = User::create([
             'name' => $request->name,

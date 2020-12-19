@@ -14,8 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*************************************************************************************************/
 Route::get('/', 'PagesController@index')->name('pages.index');
 Route::get('help', 'PagesController@help')->name('pages.help');
 Route::get('about', 'PagesController@about')->name('pages.about');
+/*************************************************************************************************/
 Route::resource('users', 'UsersController');
 Route::get('register', 'UsersController@create')->name('users.create');
+/*************************************************************************************************/
+Route::get('login', 'SessionsController@create')->name('sessions.create');
+Route::post('login', 'SessionsController@store')->name('sessions.store');
+Route::delete('logout', 'SessionsController@destroy')->name('sessions.destory');
+/*************************************************************************************************/
