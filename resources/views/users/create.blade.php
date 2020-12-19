@@ -6,6 +6,7 @@
         <div class="card">
             <div class="card-header">用户注册</div>
             <div class="card-body">
+                @include('shared._errors')
                 <form action="{{ route('users.store') }}" method="post" autocapitalize="off">
                     @csrf
                     <div class="form-group">
