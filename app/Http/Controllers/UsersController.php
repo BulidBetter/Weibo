@@ -9,6 +9,17 @@ use function Symfony\Component\String\s;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', [
+            'except' => [ 'show', 'create', 'store' ]
+        ]);
+
+        $this->middleware('guest', [
+            'only' => [ 'create' ]
+        ]);
+    }
+
     public function create()
     {
         return view('users.create');
@@ -52,11 +63,13 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+        $this->authorize('own', $user);
         return view('users.edit', [ 'user' => $user ]);
     }
 
     public function update(User $user, Request $request)
     {
+        $this->authorize('own', $user);
         $messages = [
             'name.required' => '昵称不能为空。',
             'password.confirmed' => '两次密码输入不一致。'

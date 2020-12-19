@@ -23,7 +23,7 @@
                     </li>
                 @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('pages.help') }}" title="">帮助</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('sessions.create') }}" title="">登录</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" title="">登录</a></li>
                 @endif
             </ul>
         </div>

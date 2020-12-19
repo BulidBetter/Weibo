@@ -23,7 +23,9 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                session()->flash('info', '您处于登录状态，请退出登录后重试。');
+
+                return redirect()->back();
             }
         }
 
