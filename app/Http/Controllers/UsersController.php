@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use function Symfony\Component\String\s;
 
 class UsersController extends Controller
@@ -36,6 +37,8 @@ class UsersController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ]);
+
+        Auth::login($user);
 
         $request->session()->flash('success', '欢迎，您将在这里开启一段新的旅程～');
 

@@ -27,13 +27,11 @@ class SessionsController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->flash('success', '欢迎回来！');
-            $route = route('users.show', [ $request->user() ]);
+            $route = route('users.show', [ Auth::user() ]);
             return redirect()->intended($route);
         } else {
             $request->session()->flash('danger', '很抱歉，您的邮箱和密码不匹配');
             return redirect()->back()->withInput();
         }
-
-        return;
     }
 }

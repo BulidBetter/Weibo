@@ -20,7 +20,7 @@
                     <input class="btn btn-primary" type="submit" value="立即登录" />
                 </form>
             </div>
-            <div class="card-footer text-right">还没账号？<a href="#" title="">现在注册！</a></div>
+            <div class="card-footer text-right">还没账号？<a href="{{ route('users.create') }}" title="">现在注册！</a></div>
         </div>
     </div>
 @stop
