@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use function Symfony\Component\String\s;
 
 class UsersController extends Controller
 {
@@ -30,7 +31,15 @@ class UsersController extends Controller
             'password' => 'required|confirmed'
         ], $message);
 
-        return [];
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+
+        $request->session()->flash('success', '欢迎，您将在这里开启一段新的旅程～');
+
+        return redirect()->route('users.show', [ 'user' => $user ]);
     }
 
     public function show(User $user)

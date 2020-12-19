@@ -17,5 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PagesController@index')->name('pages.index');
 Route::get('help', 'PagesController@help')->name('pages.help');
 Route::get('about', 'PagesController@about')->name('pages.about');
-Route::get('register', 'UsersController@create')->name('users.create');
 Route::resource('users', 'UsersController');
+Route::get('register', 'UsersController@create')->name('users.create');

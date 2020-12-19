@@ -13,6 +13,7 @@
 @include('layouts._header')
 <div id="app" class="container">
     <div class="col-lg-10 offset-lg-1">
+        @include('shared._messages')
         @yield('content')
         @include('layouts._footer')
     </div>
