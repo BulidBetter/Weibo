@@ -20,7 +20,7 @@ class UsersController extends Controller
             'name.required' => '昵称不能为空。',
             'name.unique' => '该昵称已存在。',
             'email.required' => '邮箱不能为空。',
-            'email.email' => '邮箱不是有效的邮箱地址。',
+            'email.email' => '邮箱必须是有效的电子邮件地址。',
             'email.unique' => '该邮箱已被注册。',
             'password.required' => '密码不能为空。',
             'password.confirmed' => '两次密码输入不一致。'
@@ -48,5 +48,34 @@ class UsersController extends Controller
     public function show(User $user)
     {
         return view('users.show', [ 'user' => $user ]);
+    }
+
+    public function edit(User $user)
+    {
+        return view('users.edit', [ 'user' => $user ]);
+    }
+
+    public function update(User $user, Request $request)
+    {
+        $messages = [
+            'name.required' => '昵称不能为空。',
+            'password.confirmed' => '两次密码输入不一致。'
+        ];
+
+        $this->validate($request, [
+            'name' => 'required',
+            'password' => 'nullable|confirmed'
+        ], $messages);
+
+        $data = [];
+        $data['name'] = $request->name;
+        if ($request->password) {
+            $data['password'] = $request->password;
+        }
+
+        $user->update($data);
+        session()->flash('success', '个人资料更新成功！');
+
+        return redirect()->route('users.show', [ 'user' => $user ]);
     }
 }

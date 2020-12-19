@@ -12,7 +12,7 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" title="">{{ Auth::user()->name }}</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ route('users.show', Auth::user()) }}" title=""><i class="fa fa-user-alt"></i>&nbsp;&nbsp;个人中心</a>
-                            <a class="dropdown-item" href="#" title=""><i class="fa fa-user-edit"></i>&nbsp;编辑资料</a>
+                            <a class="dropdown-item" href="{{ route('users.edit', Auth::user()) }}" title=""><i class="fa fa-user-edit"></i>&nbsp;编辑资料</a>
                             <div class="dropdown-divider"></div>
                             <form class="dropdown-item" action="{{ route('sessions.destory') }}" method="post">
                                 @csrf

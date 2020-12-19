@@ -16,7 +16,7 @@ class SessionsController extends Controller
     {
         $messages = [
             'email.required' => '邮箱不能为空。',
-            'email.email' => '邮箱不是有效的邮箱地址。',
+            'email.email' => '邮箱必须是有效的电子邮件地址。',
             'password.required' => '密码不能为空。'
         ];
 
