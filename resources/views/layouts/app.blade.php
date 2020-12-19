@@ -19,8 +19,6 @@
 </div>
 
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/jquery.pjax.js') }}"></script>
-<script src="{{ asset('js/nprogress.js') }}"></script>
 <script src="{{ asset('js/public.js') }}"></script>
 
 </body>

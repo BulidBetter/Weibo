@@ -21,9 +21,5 @@
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.6.12"
-    },
-    "dependencies": {
-        "jquery-pjax": "^2.0.1",
-        "nprogress": "^0.2.0"
     }
 }
