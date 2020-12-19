@@ -28,6 +28,7 @@
                     <input class="btn btn-primary" type="submit" value="立即注册" />
                 </form>
             </div>
+            <div class="card-footer text-right">已有账号？<a href="{{ route('sessions.store') }}" title="">现在登录！</a></div>
         </div>
     </div>
 @stop
