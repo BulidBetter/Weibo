@@ -27,3 +27,8 @@ Route::post('login', 'SessionsController@store')->name('sessions.store');
 Route::delete('logout', 'SessionsController@destroy')->name('sessions.destory');
 /*************************************************************************************************/
 Route::get('email/verify/{token}', 'EmailController@store')->name('email.verify');
+/*************************************************************************************************/
+Route::get('password/reset', 'PasswordController@index')->name('password.index');
+Route::post('password/reset', 'PasswordController@store')->name('password.store');
+Route::get('password/reset/{token}', 'PasswordController@edit')->name('password.edit');
+Route::patch('password/reset', 'PasswordController@update')->name('password.update');

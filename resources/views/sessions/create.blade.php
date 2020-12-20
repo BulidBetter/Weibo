@@ -20,6 +20,7 @@
                     <div class="form-group custom-control custom-checkbox">
                         <input id="remember" class="custom-control-input" type="checkbox" name="remember" />
                         <label class="custom-control-label" for="remember">记住我</label>
+                        <div class="form-group float-right"><a href="{{ route('password.index') }}" title="">忘记密码？</a></div>
                     </div>
                     <input class="btn btn-primary" type="submit" value="立即登录" />
                 </form>
