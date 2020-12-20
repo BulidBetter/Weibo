@@ -13,6 +13,13 @@ use Illuminate\Support\Str;
 
 class PasswordController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('throttle:5, 5', [
+            'only' => [ 'store' ]
+        ]);
+    }
+
     public function index()
     {
         return view('passwords.index');
