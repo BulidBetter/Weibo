@@ -20,6 +20,12 @@ class UsersController extends Controller
         ]);
     }
 
+    public function index(User $user)
+    {
+        $users = $user->paginate(7);
+        return view('users.index', [ 'users' => $users ]);
+    }
+
     public function create()
     {
         return view('users.create');

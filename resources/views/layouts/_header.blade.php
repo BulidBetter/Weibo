@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 @if (Auth::check())
-                    <li class="nav-item"><a class="nav-link" href="#" title="">用户列表</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}" title="">用户列表</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" title="">{{ Auth::user()->name }}</a>
                         <div class="dropdown-menu">
