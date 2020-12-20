@@ -14,9 +14,9 @@
                     @endif
                     <form action="{{ route('password.store') }}" method="post" autocapitalize="off">
                         @csrf
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="form-control-label">邮箱地址：</label>
-                            <input id="email" type="email" class="form-control" name="email" autocomplete="off" value="{{ old('email') }}" />
+                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" />
                             @if ($errors->has('email'))
                                 <span class="form-text text-danger"><strong>{{ $errors->first('email') }}</strong></span>
                             @endif
