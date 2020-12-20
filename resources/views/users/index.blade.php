@@ -11,6 +11,13 @@
                         <div class="list-group-item">
                             <img class="mr-3" src="{{ $user->gravatar(32) }}" alt="{{ $user->name }}" />
                             <a href="{{ route('users.show', $user) }}" title="">{{ $user->name }}</a>
+                            @can('destroy', $user)
+                                <form class="float-right" action="{{ route('users.destroy', $user) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-sm btn-danger delete-btn" type="submit">删除</button>
+                                </form>
+                            @endcan
                         </div>
                     @endforeach
                 </div>
