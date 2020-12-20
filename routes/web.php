@@ -26,3 +26,4 @@ Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('sessions.store');
 Route::delete('logout', 'SessionsController@destroy')->name('sessions.destory');
 /*************************************************************************************************/
+Route::get('email/verify/{token}', 'EmailController@store')->name('email.verify');

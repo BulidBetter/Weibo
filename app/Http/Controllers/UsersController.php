@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use function Symfony\Component\String\s;
 
 class UsersController extends Controller
@@ -55,11 +57,24 @@ class UsersController extends Controller
             'password' => $request->password
         ]);
 
-        Auth::login($user);
+        $this->sendEmailConfirmationTo($user);
+        $request->session()->flash('success', '验证邮件已发送到你的注册邮箱上，请注意查收。');
 
-        $request->session()->flash('success', '欢迎，您将在这里开启一段新的旅程～');
+        return redirect('/');
+    }
 
-        return redirect()->route('users.show', [ 'user' => $user ]);
+    protected function sendEmailConfirmationTo($user)
+    {
+        $view = 'emails.confirm';
+        $data = [ 'user' => $user ];
+        $from = '75692074@qq.com';
+        $name = 'Build Better';
+        $to = $user->email;
+        $subject = "感谢注册 Weibo 应用！请确认你的邮箱。";
+
+        Mail::send($view, $data, function(Message $message) use ($from, $name, $to, $subject) {
+            $message->from($from, $name)->to($to)->subject($subject);
+        });
     }
 
     public function show(User $user)
