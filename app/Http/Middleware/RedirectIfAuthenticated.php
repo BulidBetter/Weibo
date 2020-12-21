@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                session()->flash('info', '您处于登录状态，请退出登录后重试。');
+                session()->flash('info', '您现处于登录状态，请退出登录后重试。');
 
                 return redirect()->back();
             }
