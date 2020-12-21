@@ -7,6 +7,9 @@
             <div class="user_info">
                 @include('shared._user_info', $user)
             </div>
+            <div class='stats mt-2'>
+                @include('shared._stats', $user)
+            </div>
             <div class="status">
                 @if ($statuses->count() > 0)
                     <ul class="list-unstyled">
