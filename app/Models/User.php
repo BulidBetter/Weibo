@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Status::class, 'user_id', 'id');
     }
+
+    public function feed()
+    {
+        return $this->statuses()->orderByDesc('created_at');
+    }
 }
